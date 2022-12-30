@@ -117,7 +117,6 @@ try:
             tprint("Selecting correct gamemode")
             fbutton = untilvis(By.XPATH, """//img[@alt="Factory"]""").get()
             fbutton.click()
-
             tprint("Inputting correct information")
             timeinput = untilvis(By.XPATH, """//input[@placeholder="Time"]""").get()
             timeinput.clear()
@@ -171,13 +170,13 @@ try:
             tprint("Selecting random token multiplier")
             tokenm = untilvis(By.CLASS_NAME, "styles__prizeSet___35U-m-camelCase").get()
             tokenm.click()
+            sleep(10)
             continuebtn = untilvis(By.CLASS_NAME, "styles__button___22rMT-camelCase").get()
             continuebtn.click()
             tprint("Proceeding to next game")
     tprint("Automation complete", "green")
-    for i in range(3, 0, -1):
-        print(f"Quitting in: {i}")
-        sleep(1)
+    tprint("Press enter to quit the program.", "green")
+    input("")
     quit()
 
 
