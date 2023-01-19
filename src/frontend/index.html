@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <script src="https://kit.fontawesome.com/f535951b49.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+
+<nav class="navbar">
+<h2>
+micahgetbamboozled
+</h2>
+</nav>
+
+<form id="login_form">
+<h1>
+Login
+</h1>
+<hr>
 <div class="i1">
-<i class="fas fa-user fa-lg" id="user_icon"></i><input placeholder="Username/Email" id="u_input">
+<i class="fas fa-user fa-lg" id="user_icon"></i><input placeholder="Google Email" id="u_input" type="email">
 </div>
 
 <div class="i1">
 <i class="fas fa-lock fa-lg" id="lock_icon"></i><input placeholder="Password" id="p_input" type="password">
 </div>
 
-<div id="buttons">
-<button class="b1">Button 1</button>
-<button class="b2">Button 2</button>
-<div class="b3">
-</div>
+<div class="checktab">
+<input type="checkbox" id="cb"><label for="cb" id="checklabel">Enable headless mode</label>
 </div>
 
+<button class="b2" type="submit" value="Submit" form="login_form">
+Let's Go!
+</button>
+
+</form>
+
 </body>
+
 </html>
