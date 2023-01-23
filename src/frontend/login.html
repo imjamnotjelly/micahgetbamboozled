@@ -4,6 +4,8 @@
   <head>
 
     <script src="https://kit.fontawesome.com/f535951b49.js" crossorigin="anonymous"></script>
+    <script src="../scripts/login.js"></script>
+    <link rel="stylesheet" href="style.css">
 
   </head>
 
@@ -17,7 +19,7 @@
 
     </nav>
 
-    <form id="login_form">
+    <form id="login_form" onsubmit="print_inputs()">
 
       <h1>
         Login
@@ -27,7 +29,7 @@
 
       <div class="i1">
         <i class="fas fa-user fa-lg" id="user_icon"></i>
-        <input placeholder="Google Email" id="u_input" type="email">
+        <input placeholder="Email" id="u_input" type="email">
       </div>
 
       <div class="i1">
@@ -39,8 +41,8 @@
         <input type="checkbox" id="headless_cb">
         <label for="headless_cb" id="checklabel">Enable headless mode</label>
       </div>
-      
-      <button class="b2" type="submit" value="Submit" form="login_form">
+
+      <button class="b2" type="submit" form="login_form">
         Let's Go!
       </button>
 
