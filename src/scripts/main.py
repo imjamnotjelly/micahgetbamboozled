@@ -30,8 +30,6 @@ colors = {
     "yellow": "\033[33m",
     "white": "\033[39m"
 }
-
-
 def tprint(data, color="white"):
     print(colors[color] + f"[{strftime('%H:%M:%S')}] {data}" + "\033[0m")
 
