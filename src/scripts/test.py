@@ -1,28 +1,32 @@
 import eel
 
-def main():
-    eel.init("../../src")
-    eel.start("frontend/login/login.html", block=False)
-    print("Eel initialized!")
+eel.init("../../src")
 
-    username = ""
-    password = ""
-    headless = False
+form_wait = True
 
-    while not username:
-        username, password, headless = eel.return_inputs()()
-    # eel.close_window()
+@eel.expose
+def wait_switch():
+    form_wait = not form_wait
 
-    print(f"""
-    Username: {username}
-    Password: {password}
-    Headless: {headless}
-    this is in python btw!!!
-    """)
-    # eel.start("frontend/platform_select/platform_select.html", block=False)
+eel.start("frontend/login/login.html", block=False)
+print("Eel initialized!")
 
-if __name__ == "__main__":
-    main()
+username = ""
+password = ""
+headless = False
 
+while form_wait:
+    pass
+
+username, password, headless = eel.return_inputs()()
+eel.close_window()
+
+print(f"""
+Username: {username}
+Password: {password}
+Headless: {headless}
+this is in python btw!!!
+""")
+eel.start("frontend/platform_select/platform_select.html", block=False)
 
 

@@ -2,9 +2,6 @@ let username
 let password
 let headless
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms))
-}
 function print_inputs(){
 	username = document.getElementById("u_input").value
 	password = document.getElementById("p_input").value
@@ -12,6 +9,7 @@ function print_inputs(){
 	console.log(`Username: ${username}`)
 	console.log(`Password: ${password}`)
 	console.log(`Headless: ${headless}`)
+	eel.wait_switch()
 }
 
 eel.expose(return_inputs, "return_inputs")
