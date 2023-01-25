@@ -1,4 +1,5 @@
 import os
+import eel
 from selenium import webdriver
 from time import sleep
 from time import strftime
@@ -30,6 +31,7 @@ colors = {
     "yellow": "\033[33m",
     "white": "\033[39m"
 }
+
 def tprint(data, color="white"):
     print(colors[color] + f"[{strftime('%H:%M:%S')}] {data}" + "\033[0m")
 
@@ -63,19 +65,30 @@ def eleexists(id, name):
 
 tprint("Program started", "green")
 tprint("WARNING: DO NOT SELECT ANY GAME ELEMENTS AMID THE AUTOMATION PROCESS! THIS WILL TERMINATE THE PROGRAM!", "red")
+eel.init("../../src")
+eel.start("frontend/login/login.html", block=False)
+tprint("Eel initialized", "green")
+
+email = ""
+password = ""
+headless = False
+
+while not username:
+    username, password, headless = eel.return_inputs()()
+eel.close_window()
+
+tprint(f"Email: {email}", "yellow")
+tprint(f"Password: {"*"*len(password)}", "yellow")
+tprint(f"Headless: {headless}", "yellow")
+
 options = webdriver.ChromeOptions()
+if headless:
+    options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
-while True:
-    uemail = tinput("Enter your Google account email that corresponds to your blooket account:  ", "yellow")
-    if "@" not in uemail or "." not in uemail:
-        tprint("Please enter a valid email.", "red")
-    else:
-        break
 
-upassword = tinput("Enter your Google account password:  ", "yellow")
-gameamount = int(tinput("How many times would you like to run the gamemode?: ", "yellow"))
 tprint("Starting automation", "green")
 
 wait = WebDriverWait(driver, 25)
@@ -93,14 +106,14 @@ try:
     tprint("Changing window focus to popup")
 
     ginp = untilvis(By.ID, "identifierId").get()
-    ginp.send_keys(uemail)
+    ginp.send_keys(email)
     tprint("Entering email")
     ginp.send_keys(Keys.ENTER)
     sleep(2)
 
     ginp = untilvis(By.CLASS_NAME, "whsOnd").get()
     tprint("Entering password")
-    ginp.send_keys(upassword)
+    ginp.send_keys(password)
     ginp.send_keys(Keys.ENTER)
     tprint("Changing window focus to primary window")
     driver.switch_to.window(cwindows[0])
