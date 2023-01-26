@@ -64,21 +64,22 @@ def eleexists(id, name):
 
 
 tprint("Program started", "green")
-tprint("WARNING: DO NOT SELECT ANY GAME ELEMENTS AMID THE AUTOMATION PROCESS! THIS WILL TERMINATE THE PROGRAM!", "red")
 eel.init("../../src")
 eel.start("frontend/login/login.html", block=False)
 tprint("Eel initialized", "green")
+tprint("WARNING: DO NOT SELECT ANY GAME ELEMENTS AMID THE AUTOMATION PROCESS! THIS WILL TERMINATE THE PROGRAM!", "red")
 
 email = ""
 password = ""
 headless = False
 
-while not username:
-    username, password, headless = eel.return_inputs()()
+while not email:
+    email, password, headless = eel.return_inputs()()
+
 eel.close_window()
 
 tprint(f"Email: {email}", "yellow")
-tprint(f"Password: {"*"*len(password)}", "yellow")
+tprint(f"Password: {'*'*len(password)}", "yellow")
 tprint(f"Headless: {headless}", "yellow")
 
 options = webdriver.ChromeOptions()
@@ -120,7 +121,7 @@ try:
 
     sleep(15)
 
-    for g in range(gameamount):
+    for g in range(3):
         try:
 
             driver.get("https://play.blooket.com/solo?id=63741c005b59391c7a779d15")
@@ -176,7 +177,7 @@ try:
                     blook.get().click()
 
                 sleep(1.5)
-        except:
+        except Exception:
             tprint("Game finished", "green")
             tprint("Selecting random token multiplier")
             tokenm = untilvis(By.CLASS_NAME, "styles__prizeSet___35U-m-camelCase").get()
