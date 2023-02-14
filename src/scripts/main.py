@@ -84,8 +84,7 @@ Email: {email}
 Password: {'*'*len(password)}
 Headless: {headless}
 Platform: {login_type}
-""",
-"yellow")
+""","yellow")
 
 options = webdriver.ChromeOptions()
 if headless:
