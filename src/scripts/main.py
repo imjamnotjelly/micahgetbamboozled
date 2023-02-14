@@ -72,9 +72,10 @@ tprint("WARNING: DO NOT SELECT ANY GAME ELEMENTS AMID THE AUTOMATION PROCESS! TH
 email = ""
 password = ""
 headless = False
+login_type = ""
 
 while not email:
-    email, password, headless = eel.return_inputs()()
+    email, password, headless, login_type = eel.return_inputs()()
 
 eel.close_window()
 
