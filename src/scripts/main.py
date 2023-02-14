@@ -65,7 +65,7 @@ def eleexists(id, name):
 
 tprint("Program started", "green")
 eel.init("../../src")
-eel.start("frontend/login/login.html", block=False)
+eel.start("frontend/login/platform_select.html", block=False)
 tprint("Eel initialized", "green")
 tprint("WARNING: DO NOT SELECT ANY GAME ELEMENTS AMID THE AUTOMATION PROCESS! THIS WILL TERMINATE THE PROGRAM!", "red")
 
@@ -79,9 +79,13 @@ while not email:
 
 eel.close_window()
 
-tprint(f"Email: {email}", "yellow")
-tprint(f"Password: {'*'*len(password)}", "yellow")
-tprint(f"Headless: {headless}", "yellow")
+tprint(f"""
+Email: {email}
+Password: {'*'*len(password)}
+Headless: {headless}
+Platform: {login_type}
+""",
+"yellow")
 
 options = webdriver.ChromeOptions()
 if headless:
