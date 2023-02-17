@@ -3,11 +3,11 @@
 
 <head>
 
-    <script src="https://kit.fontawesome.com/f535951b49.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/eel.js"></script>
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/f535951b49.js"></script>
+    <script src="/eel.js" type="text/javascript"></script>
     <script src="../../scripts/platform_select.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="../favicon.ico">
+    <link href="style.css" rel="stylesheet">
+    <link href="../favicon.ico" rel="icon">
     <title>micahgetbamboozled</title>
 
 </head>
@@ -30,12 +30,12 @@
 
     <hr>
 
-    <div class="b3" id="google_login">
+    <div class="b3" id="google_login" onclick="set_id(this.id)">
         <i class="fab fa-google fa-lg"></i>
         <label>Login with Google</label>
     </div>
 
-    <div class="b3" id="blooket_login">
+    <div class="b3" id="blooket_login" onclick="set_id(this.id)">
         <i class="fas fa-envelope fa-lg"></i>
         <label>Login with Blooket</label>
     </div>

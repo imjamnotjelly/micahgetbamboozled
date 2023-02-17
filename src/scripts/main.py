@@ -65,7 +65,7 @@ def eleexists(id, name):
 
 tprint("Program started", "green")
 eel.init("../../src")
-eel.start("frontend/login/platform_select.html", block=False)
+eel.start("frontend/platform_select/platform_select.html", block=False)
 tprint("Eel initialized", "green")
 tprint("WARNING: DO NOT SELECT ANY GAME ELEMENTS AMID THE AUTOMATION PROCESS! THIS WILL TERMINATE THE PROGRAM!", "red")
 
